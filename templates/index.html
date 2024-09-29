@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Citation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/styles/styles.css" media="screen" />
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center">Gerador de Citações a partir de PDFs</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data" class="mt-4" id="uploadForm">
+            <h5>Selecione os Arquivos PDF:</h5>
+            <div id="fileInputs" class="mb-3">
+                <div class="file-label mb-3">
+                    <label class="custom-file-upload">
+                        <input type="file" name="files" class="file-input" required onchange="updateFileName(this)">
+                        Inserir Arquivo
+                    </label>
+                    <span class="file-name">Nenhum arquivo selecionado</span>
+                    <button type="button" class="btn btn-danger remove-btn" onclick="removeInput(this)">X</button>
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary" onclick="addInput()">Adicionar mais arquivos</button>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Enviar</button>
+        </form>
+
+        {% if citations %}
+        <h2 class="mt-5">Citações Extraídas:</h2>
+        <div id="citationsContainer">
+            {% for citation in citations %}
+                <div class="citation-block alert alert-info mt-2">
+                    <p class="citation-text">{{ citation }}</p>
+                    <button class="btn btn-success" onclick="copyCitation(this)">Copiar Citação</button>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../static/js/scripts.js"></script>
+</body>
+</html>

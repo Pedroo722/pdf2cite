@@ -1,0 +1,54 @@
+body {
+    background-color: #f8f9fa; 
+}
+
+.container {
+    margin-top: 5rem;
+}
+
+.remove-btn {
+    color: red; 
+    border: none;
+    background: none;
+    font-size: 20px;  
+    cursor: pointer; 
+    padding: 0;
+    margin-left: 10px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+}
+
+.file-input {
+    display: none; 
+}
+
+.file-label {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; 
+}
+
+.file-name {
+    flex-grow: 1;
+    margin-left: 10px;
+    color: #495057;
+}
+
+.remove-btn {
+    position: absolute; 
+    right: -30px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
